@@ -1,2 +1,2 @@
-export * from '../../../models/admin/modulo';
-export * from '../../../services/admin/admin-modulo.service';
+export * from '../../../_models/admin/modulo';
+export * from '../../../_services/admin/admin-modulo.service';
