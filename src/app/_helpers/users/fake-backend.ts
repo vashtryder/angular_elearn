@@ -3,6 +3,10 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
+// El proveedor de backend falso permite que el ejemplo se ejecute sin backend / backendless,
+// usa almacenamiento local HTML5 para almacenar datos de usuarios registrados y proporciona implementaciones
+// falsas para métodos de autenticación y CRUD, estos serían manejados por una API y base de datos reales en una aplicación de producción.
+
 @Injectable()
 export class UserFakeBackendInterceptor implements HttpInterceptor {
 
