@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ModelPerfil } from '../../../modules/admin/perfil';
-import { AdminPerfilService } from '../../../services/admin/admin-perfil.service';
-import { AppGlobals } from '../../../services/admin-global';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ModelPerfil, AdminPerfilService, AppGlobals } from './index';
 
 @Component({
   selector: 'app-m-admin-perfil',
