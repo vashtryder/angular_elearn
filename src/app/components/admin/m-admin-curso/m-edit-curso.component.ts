@@ -35,10 +35,10 @@ export class MEditCursoComponent implements OnInit {
         .subscribe(
           data => {
             this.arrayCurso = data.result;
-            this.arrayData = Array.of(this.arrayCurso);
+            // this.arrayData = Array.of(this.arrayCurso);
             this.angForm.setValue({
-              idCurso: this.arrayData[0].idCurso,
-              nombreCurso: this.arrayData[0].nombre
+              idCurso: this.arrayCurso[0].idCurso,
+              nombreCurso: this.arrayCurso[0].nombreCurso
             })
           }
         )

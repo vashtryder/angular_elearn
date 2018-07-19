@@ -24,10 +24,7 @@ export class MNewCursoComponent implements OnInit {
   }
 
   addCurso(){
-    this.cursoService.add(this._global.baseAPIUrl, this.angForm.value)
-    .subscribe(
-      res => console.log(res)
-    );
+    this.cursoService.add(this._global.baseAPIUrl, this.angForm.value).subscribe(res => console.log(res));
     this._route.navigate(['admin/curso']);
   }
 

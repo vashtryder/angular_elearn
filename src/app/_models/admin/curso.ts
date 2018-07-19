@@ -1,4 +1,4 @@
-export interface ModelCurso{
+export class ModelCurso{
   idCurso: number;
   nombreCurso: string;
 }

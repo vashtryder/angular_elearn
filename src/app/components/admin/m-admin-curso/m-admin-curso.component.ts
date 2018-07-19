@@ -19,21 +19,13 @@ export class MAdminCursoComponent implements OnInit {
   deleteCurso(id){
     const r = confirm('¿ Deseas eliminar el registro seleccionado ?');
     if (r === true) {
-      this.cursoService.delete(this._global.baseAPIUrl, id)
-      .subscribe(res => {
-        console.log(res);
-      });
+      this.cursoService.delete(this._global.baseAPIUrl, id).subscribe(res => { console.log(res); });
     }
     this._route.navigate(['admin/curso']);
   }
 
   listarCurso(){
-    this.cursoService
-    .getAll(this._global.baseAPIUrl)
-    .subscribe(
-      data => {
-        this.arrayCurso = data.result
-      })
+    this.cursoService.getAll(this._global.baseAPIUrl).subscribe( data => { this.arrayCurso = data.result })
   }
   ngOnInit() {
     this.listarCurso()
