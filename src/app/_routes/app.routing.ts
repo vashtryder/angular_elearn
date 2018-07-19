@@ -8,7 +8,7 @@ import { MExamenComponent } from '../components/users/m-examen/m-examen.componen
 import { MPerfilComponent } from '../components/users/m-perfil/m-perfil.component';
 import { MRespuestaComponent } from '../components/users/m-respuesta/m-respuesta.component';
 
-import { MPageFoundComponent } from '../components/m-page-found/m-page-found.component';
+import { MPageFoundComponent } from '../_directives/m-page-found/m-page-found.component';
 
 // component perfil admin
 import { MAdminLoginComponent } from '../components/admin/m-admin-login/m-admin-login.component';
