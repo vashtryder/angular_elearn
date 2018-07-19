@@ -1,0 +1,52 @@
+<app-m-admin-menu></app-m-admin-menu>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <app-m-admin-sub-menu></app-m-admin-sub-menu>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">ACTUALIZAR EXAMEN</h1>
+            </div>
+            <form [formGroup]="angForm">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <label for="recipient-name" class="form-control-label">Nombre Exámen:</label>
+                        <input type="hidden" name="idExamen" formControlName="idExamen" #idExamen>
+                        <input type="text" class="form-control" name="nombreExamen" formControlName="nombreExamen" #nombreExamen>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="recipient-name" class="form-control-label">Selecione Curso:</label>
+                        <select class="form-control m_select2curso" name="idCurso" formControlName="idCurso" #idCurso style="width: 100%" (change)="paraElegirModulo()">
+                          <option *ngFor="let item_curso of arrayCurso" [value]="item_curso.idCurso">{{ item_curso.nombre }} </option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="recipient-name" class="form-control-label">Selecione Modulo:</label>
+                        <select class="form-control m_select2Modulo" name="idModulo" formControlName="idModulo" #idModulo style="width: 100%">
+                          <option *ngFor="let item_modulo of arrayModulo" [value]="item_modulo.idModulo">{{ item_modulo.nombre }}</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="form-control-label">Selecione Archivo:</label>
+                        <input type="file" class="form-control" name="upfile" (change)="onFileChange($event)" #upfile>
+                    </div>
+                    <div class=col-md-6>
+                        <label for="recipient-name" class="form-control-label">Archivo Actual Adjuntado: </label> <br>
+                        <label class="form-control-label"> <span> {{ nombreArchivo.value }} </span></label>
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+                <button class="btn btn-xs btn-outline-info" (click)="updateExamen()">ACTUALIZAR</button>&nbsp;
+                <button class="btn btn-xs btn-outline-danger" [routerLink]="[ '/admin/examen' ]">CANCELAR</button>
+            </form>
+        </main>
+    </div>
+</div>

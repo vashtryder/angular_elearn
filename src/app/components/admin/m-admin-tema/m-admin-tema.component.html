@@ -1,0 +1,44 @@
+<app-m-admin-menu></app-m-admin-menu>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <app-m-admin-sub-menu></app-m-admin-sub-menu>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">TEMA</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary" [routerLink]="[ '/admin/tema/add' ]" routerLinkActive="active">Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>TEMA</th>
+                            <th>CURSO</th>
+                            <th>MODULO</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of arrayTema">
+                            <td>{{ item.idTema }}</td>
+                            <td>{{ item.nombreTema }}</td>
+                            <td>{{ item.nombreCurso }}</td>
+                            <td>{{ item.nombreModulo }}</td>
+                            <td>
+                                <a [routerLink]="[ '/admin/tema/edit', item.idTema ]" class="btn btn-outline-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a>&nbsp;
+                                <a (click)="deleteTema(item.idTema)" class="btn btn-outline-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>

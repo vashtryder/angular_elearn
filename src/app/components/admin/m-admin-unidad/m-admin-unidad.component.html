@@ -1,0 +1,39 @@
+<app-m-admin-menu></app-m-admin-menu>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <app-m-admin-sub-menu></app-m-admin-sub-menu>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">UNIDAD</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary" [routerLink]="[ '/admin/unidad/add' ]" routerLinkActive="active">Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>NOMBRE UNIDAD</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of arrayUnidad">
+                            <td>{{ item.idUnidad }}</td>
+                            <td>{{ item.nombreUnidad }}</td>
+                            <td>
+                                <a [routerLink]="[ '/admin/unidad/edit', item.idUnidad ]" class="btn btn-outline-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a> &nbsp;
+                                <a (click)="deleteUnidad(item.idUnidad)" class="btn btn-outline-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<app-m-admin-menu></app-m-admin-menu>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <app-m-admin-sub-menu></app-m-admin-sub-menu>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">ACTUALIZAR CURSO</h1>
+            </div>
+            <form *ngIf="arrayCurso" [formGroup]="angForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="form-control-label">Nombre Curso:</label>
+                        <input type="hidden" name="id" formControlName="idCurso" #idCurso>
+                        <input type="text" name="nombreCurso" class="form-control" formControlName="nombreCurso" #nombreCurso>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-xs btn-outline-info" (click)="updateCurso()">ACTUALIZAR</button>&nbsp;
+                <button class="btn btn-xs btn-outline-danger" [routerLink]="[ '/admin/curso']">CANCELAR</button>
+            </form>
+        </main>
+    </div>
+</div>

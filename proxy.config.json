@@ -1,0 +1,12 @@
+{
+    "/server/*": {
+
+        "target": "http://localhost/webapi/public/",
+        "secure": false
+    },
+
+    "/upload/*": {
+        "target": "http://localhost/elearn/",
+        "secure": false
+    }
+}

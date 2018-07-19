@@ -1,0 +1,41 @@
+<app-m-admin-menu></app-m-admin-menu>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <app-m-admin-sub-menu></app-m-admin-sub-menu>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">ACTUALIZAR MODULO</h1>
+            </div>
+            <form [formGroup]="angForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="form-control-label">Nombre Curso:</label>
+                        <input type="hidden" formControlName="idModulo" #idModulo name="idModulo">
+                        <input type="text" class="form-control" formControlName="nombreModulo" #nombreModulo name="nombreModulo">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="form-control-label">Selecione Curso:</label>
+                        <select class="form-control m_select2curso" formControlName="idCurso" #idCurso name="idCurso" style="width: 100%">
+                          <option *ngFor="let item_curso of arrayCurso" [value]="item_curso.idCurso">{{ item_curso.nombre }}</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="form-control-label">Selecione Unidad:</label>
+                        <select class="form-control m_select2unidad" formControlName="idUnidad" #idUnidad name="idUnidad" style="width: 100%">
+                          <option *ngFor="let item_unidad of arrayUnidad" [value]="item_unidad.idUnidad">{{ item_unidad.nombreUnidad }}</option>
+                        </select>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-xs btn-outline-info" (click)="updateModulo()">ACTUALIZAR</button>&nbsp;
+                <button class="btn btn-xs btn-outline-danger" [routerLink]="[ '/admin/modulo' ]">CANCELAR</button>
+            </form>
+        </main>
+    </div>
+</div>

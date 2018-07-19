@@ -1,0 +1,77 @@
+<div class="sidebar-sticky">
+    <ul class="nav flex-column">
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Dasboard</span>
+            <a class="d-flex align-items-center text-muted">
+                <span data-feather="plus-circle"></span>
+            </a>
+        </h6>
+        <li class="nav-item">
+            <a class="nav-link active" [routerLink]="[ '/admin/dashboard' ]" routerLinkActive="active">
+                <span data-feather="home"></span> Dashboard <span class="sr-only">(current)</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="[ '/admin/unidad' ]" routerLinkActive="active">
+                <span data-feather="file"></span> Unidad
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="[ '/admin/curso' ]" routerLinkActive="active">
+                <span data-feather="shopping-cart"></span> Curso
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="[ '/admin/modulo' ]" routerLinkActive="active">
+                <span data-feather="users"></span> Modulo
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="[ '/admin/tema' ]" routerLinkActive="active">
+                <span data-feather="bar-chart-2"></span> Tema
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="[ '/admin/examen' ]" routerLinkActive="active">
+                <span data-feather="layers"></span> Examen
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="[ '/admin/respuesta' ]" routerLinkActive="active">
+                <span data-feather="layers"></span> Respuesta
+            </a>
+        </li>
+    </ul>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+        <span>Usuario</span>
+        <a class="d-flex align-items-center text-muted">
+            <span data-feather="plus-circle"></span>
+        </a>
+    </h6>
+    <ul class="nav flex-column mb-2">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="[ '/admin/perfil/edit', 1 ]" routerLinkActive="active">
+                <span data-feather="file-text"></span> Perfil
+            </a>
+
+            <a class="nav-link" [routerLink]="[ '/admin/perfil/contra', 1 ]" routerLinkActive="active">
+                <span data-feather="file-text"></span> Contraseña
+            </a>
+        </li>
+    </ul>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+        <span>Matricula</span>
+        <a class="d-flex align-items-center text-muted">
+            <span data-feather="plus-circle"></span>
+        </a>
+    </h6>
+    <ul class="nav flex-column mb-2">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="[ '/admin/matricula' ]" routerLinkActive="active">
+                <span data-feather="file-text"></span> Suscriptor
+            </a>
+        </li>
+    </ul>
+</div>
