@@ -39,7 +39,7 @@ import {
   AdminTemaService } from './_services/admin/index';
 
 // componente Pagina
-import { MPageFoundComponent } from './components/m-page-found/m-page-found.component';
+import { MPageFoundComponent } from './_directives/m-page-found/m-page-found.component';
 import { AlertComponent } from './_directives/alert/alert.component';
 
 @NgModule({
