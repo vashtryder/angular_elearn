@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AdminModuloService } from '../../../services/admin/admin-modulo.service';
-import { AdminUnidadService } from '../../../services/admin/admin-unidad.service';
-import { AdminCursoService } from '../../../services/admin/admin-curso.service';
-import { AppGlobals } from '../../../services/admin-global';
 import { Router } from '@angular/router';
-import { ModelCurso } from '../../../modules/admin/curso';
-import { ModelUnidad } from '../../../modules/admin/unidad';
+import { ModelModulo, ModelCurso, ModelUnidad, AppGlobals } from './index';
+import { AdminModuloService, AdminUnidadService, AdminCursoService } from './index';
 
 @Component({
   selector: 'app-m-new-modulo',

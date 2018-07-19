@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModelModulo } from '../../../modules/admin/modulo';
-import { AdminModuloService } from '../../../services/admin/admin-modulo.service';
-import { AppGlobals } from '../../../services/admin-global';
 import { Router } from '@angular/router';
+import { ModelModulo, ModelCurso, ModelUnidad, AppGlobals } from './index';
+import { AdminModuloService, AdminUnidadService, AdminCursoService } from './index';
 
 @Component({
   selector: 'app-m-admin-modulo',
