@@ -9,13 +9,13 @@ export class AdminFakeBackendInterceptor implements HttpInterceptor {
     constructor() { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        // array in local storage for registered users
+        // array en el almacenamiento local para usuarios registrados
         let users: any[] = JSON.parse(localStorage.getItem('users')) || [];
 
-        // wrap in delayed observable to simulate server api call
+        // envolver en observable con retraso para simular la llamada api del servidor
         return of(null).pipe(mergeMap(() => {
 
-            // authenticate
+            // autenticar
             if (request.url.endsWith('/admin/authenticate') && request.method === 'POST') {
                 // find if any user matches login credentials
                 let filteredUsers = users.filter(user => {
@@ -23,7 +23,7 @@ export class AdminFakeBackendInterceptor implements HttpInterceptor {
                 });
 
                 if (filteredUsers.length) {
-                    // if login details are valid return 200 OK with user details and fake jwt token
+                    // si los datos de inicio de sesión son válidos, devuelva 200 OK con detalles de usuario y token falso de jwt
                     let user = filteredUsers[0];
                     let body = {
                         id: user.id,
@@ -35,25 +35,27 @@ export class AdminFakeBackendInterceptor implements HttpInterceptor {
 
                     return of(new HttpResponse({ status: 200, body: body }));
                 } else {
-                    // else return 400 bad request
-                    return throwError({ error: { message: 'Username or password is incorrect' } });
+                    // sino retorna 400 Bad Resquest
+                    return throwError({ error: { message: 'Nombre de usuario o contraseña incorrecta' } });
                 }
             }
 
             // get users
             if (request.url.endsWith('/admin') && request.method === 'GET') {
-                // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
+                // comprueba si el token de autenticación falso está en el encabezado y devuelve los usuarios si es válido,
+                // esta seguridad se implementa en el lado del servidor en una aplicación real
                 if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                     return of(new HttpResponse({ status: 200, body: users }));
                 } else {
-                    // return 401 not authorised if token is null or invalid
-                    return throwError({ error: { message: 'Unauthorised' } });
+                    // return 401 no autorizado si el token es nulo o inválido
+                    return throwError({ error: { message: 'No autorizado' } });
                 }
             }
 
             // get user by id
             if (request.url.match(/\/admin\/\d+$/) && request.method === 'GET') {
-                // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
+                // comprueba si el token de autenticación falso está en el encabezado y devuelve el usuario si es válido,
+                // esta seguridad se implementa en el lado del servidor en una aplicación real
                 if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                     // find user by id in users array
                     let urlParts = request.url.split('/');
@@ -63,14 +65,14 @@ export class AdminFakeBackendInterceptor implements HttpInterceptor {
 
                     return of(new HttpResponse({ status: 200, body: user }));
                 } else {
-                    // return 401 not authorised if token is null or invalid
+                    // return 401 no autorizado si el token es nulo o inválido
                     return throwError({ error: { message: 'Unauthorised' } });
                 }
             }
 
             // register user
             if (request.url.endsWith('admin/register') && request.method === 'POST') {
-                // get new user object from post body
+                // obtener nuevo objeto de usuario del cuerpo del mensaje
                 let newUser = request.body;
 
                 // validation
@@ -90,7 +92,8 @@ export class AdminFakeBackendInterceptor implements HttpInterceptor {
 
             // delete user
             if (request.url.match(/\/users\/\d+$/) && request.method === 'DELETE') {
-                // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
+                // check for fake auth token in header and return user if valid,
+                // this security is implemented server side in a real application
                 if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                     // find user by id in users array
                     let urlParts = request.url.split('/');
@@ -118,7 +121,8 @@ export class AdminFakeBackendInterceptor implements HttpInterceptor {
 
         }))
 
-        // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)
+        // la llamada se materializa y se desmaterializa para garantizar el retraso incluso si se produce un error
+        // (https://github.com/Reactive-Extensions/RxJS/issues/648)
         .pipe(materialize())
         .pipe(delay(500))
         .pipe(dematerialize());
