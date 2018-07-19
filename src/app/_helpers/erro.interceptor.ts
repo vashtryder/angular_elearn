@@ -5,6 +5,11 @@ import { catchError } from 'rxjs/operators';
 
 import { AuthenticationService } from '../_services/admin/authentication.service';
 
+// El interceptor de errores intercepta las respuestas http de la API para verificar si hubo algún error.
+// Si hay una respuesta 401 no autorizada, el usuario se desconecta automáticamente de la aplicación,
+// todos los demás errores se vuelven a capturar para que los capture el servicio de llamadas,
+// por lo que se puede mostrar una alerta al usuario.
+
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
     constructor(private authenticationService: AuthenticationService) {}
